@@ -1,9 +1,7 @@
+/*------------------------------------LICENSE------------------------------------
 MIT License
 
-Copyright (c) 2024 CIRON Robin
-Copyright (c) 2024 GRALLAN Yann
-Copyright (c) 2024 LESAGE Charles
-Copyright (c) 2024 MENA-BOUR Samy
+Copyright (c) [2024] [CIRON Robin]
 
 This software utilizes code from the following GitHub repositories, which are also licensed under the MIT License:
 
@@ -29,3 +27,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+---------------------------------------------------------------------------------*/
+
+#pragma once
+#include <Engine/Core/Engine.h>
+
+#include <memory>
+
+class Editor
+{
+public:
+	void Run();
+
+private:
+	std::unique_ptr<Engine> m_pEngine;
+};
