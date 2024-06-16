@@ -31,10 +31,21 @@ SOFTWARE.
 
 #pragma once
 #include "define.h"
+#include "TaskManager.h"
+
 
 class LOGI_ENGINE_API Engine
 {
 public:
+	static Engine& Get();
+
+	Engine();
+	~Engine();
+
 	void Init();
 	void Update();
+
+	private:
+	std::unique_ptr<TaskManager> m_pTaskManager;
 };
+

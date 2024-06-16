@@ -30,3 +30,13 @@ SOFTWARE.
 ---------------------------------------------------------------------------------*/
 
 #pragma once
+#include <Engine/Core/AsyncLoadedObject.h>
+
+class Panel : public AsyncLoadedObject
+{
+public:
+	Panel();
+
+	virtual void Update() {}
+	virtual void Draw()=0;
+};

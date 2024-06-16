@@ -31,6 +31,16 @@ SOFTWARE.
 
 #include "TaskManager.h"
 
+#include <cassert>
+
+TaskManager* s_pTaskManager = nullptr;
+
+TaskManager& TaskManager::Get()
+{
+	assert(s_pTaskManager);
+	return *s_pTaskManager;
+}
+
 TaskManager::TaskManager()
 	: m_stop(false)
 {
@@ -60,9 +70,15 @@ TaskManager::TaskManager()
 			}
 			});
 	}
+
+	assert(!s_pTaskManager);
+	s_pTaskManager = this;
 }
 
-TaskManager::~TaskManager() {}
+TaskManager::~TaskManager()
+{
+	s_pTaskManager = nullptr;
+}
 
 void TaskManager::EndAllTasks()
 {

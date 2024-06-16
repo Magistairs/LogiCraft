@@ -43,10 +43,8 @@ class LOGI_ENGINE_API TaskManager
 {
 public:
 	static const int NumThreads = 32;
-	static TaskManager& Get() {
-		static TaskManager m_instance;
-		return m_instance;
-	}
+
+	static TaskManager& Get();
 
 	TaskManager();
 	~TaskManager();

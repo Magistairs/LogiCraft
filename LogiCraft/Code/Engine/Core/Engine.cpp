@@ -29,8 +29,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ---------------------------------------------------------------------------------*/
 
-#pragma once
 #include "Engine.h"
+
+#include <cassert>
+
+Engine* s_pEngine = nullptr;
+
+Engine& Engine::Get()
+{
+	assert(s_pEngine);
+	return *s_pEngine;
+}
+
+Engine::Engine()
+{
+	assert(!s_pEngine);
+	s_pEngine = this;
+}
+
+Engine::~Engine()
+{
+	s_pEngine = nullptr;
+}
 
 void Engine::Init() {}
 

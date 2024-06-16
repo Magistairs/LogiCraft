@@ -37,6 +37,10 @@ SOFTWARE.
 class Editor
 {
 public:
+	static Editor& Get();
+
+	Editor();
+	~Editor();
 	void Run();
 
 private:

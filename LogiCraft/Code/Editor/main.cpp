@@ -34,7 +34,7 @@ SOFTWARE.
 
 ---------------------------------------------------------------------------------*/
 
-#include <Core/Editor.h>
+#include "Core/Editor.h"
 
 int main()
 {

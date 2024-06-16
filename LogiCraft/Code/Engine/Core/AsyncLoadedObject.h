@@ -51,5 +51,5 @@ protected:
 
 private:
 	AsyncLoadedOject_Private* m_pPrivateMembers{nullptr};
-	bool                                      m_loaded{false};
+	bool                      m_loaded{false};
 };

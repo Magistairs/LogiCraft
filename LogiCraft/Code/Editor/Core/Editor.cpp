@@ -31,12 +31,46 @@ SOFTWARE.
 
 #include "Editor.h"
 
+#include <SFML/Graphics.hpp>
+#include <cassert>
+
+Editor* s_pEditor = nullptr;
+
+Editor& Editor::Get()
+{
+	assert(s_pEditor);
+	return *s_pEditor;
+}
+
+Editor::Editor()
+{
+	assert(!s_pEditor);
+	s_pEditor = this;
+}
+
+Editor::~Editor()
+{
+	s_pEditor = nullptr;
+}
+
 void Editor::Run()
 {
 	m_pEngine = std::make_unique<Engine>();
 	m_pEngine->Init();
-	while (true)
+
+	sf::RenderWindow window(sf::VideoMode(800, 600), "LogiCraft");
+	while (window.isOpen())
 	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+
 		m_pEngine->Update();
+
+		window.clear();
+		window.display();
 	}
 }
